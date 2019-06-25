@@ -9,24 +9,19 @@ import gherkin.lexer.Is;
 
 public class Stepdefs {
 
-	private Belly belly;
-	private int waitingTime;
-
-	@Given("^I have (\\d+) cukes in my belly$")
-	public void i_have_cukes_in_my_belly(int cukes) throws Throwable {
-		belly = new Belly();
-		belly.eat(cukes);
+	@Given("I login with userid as (.*?) and password as (.*?).$")
+	public void login(String userId, String password) {
+		System.out.println("Step: Login ---User id is: " + userId + ", Password is: " + password);
 	}
-
-	@When("^I wait (\\d+) hour$")
-	public void i_wait_hour(int waitingTime) throws Throwable {
-		this.waitingTime = waitingTime;
+	
+	@When("I am redirected to Home page")
+	public void verifyHomePageRedirect() {
+		System.out.println("Step: I am redirected to Home page");
 	}
-
-	@Then("^my belly should (.*)$")
-	public void my_belly_should_growl(String expectedSound) throws Throwable {
-		//String actualSound = belly.getSound(waitingTime);
-		//assertThat(actualSound,is(String.class));
-		assertTrue(true);
+	
+	@Then("I see my image and Logout button.")
+	public void verifyUserImageAndLogoutButton() {
+		System.out.println("Step: I am redirected to Home page");
+		Assert.assertEquals("a", "b");
 	}
 }
